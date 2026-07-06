@@ -1,0 +1,28 @@
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/gemeo_digital$ python3 gemeo_digital_integrado.py --full
+>> SUCESSO: 'gera_grafo.py' do professor foi importado!
+>> SUCESSO: 'plota_rede.py' do professor foi importado!
+[1/7] Resolvendo setup térmico e viscosidade por canal...
+[2/7] Resolvendo resposta monolítica nominal e sensibilidades diretas...
+[3/7] Executando Monte Carlo estacionário e dinâmico...
+[4/7] Executando interpolação, regressão e teste com ruído...
+[5/7] Calculando mapas de sensibilidade...
+[6/7] Aplicando Newton–Raphson para E(H)-7.5...
+[7/7] Renderizando animação 3D e relatórios...
+{
+  "thermal_Tmax_C": 40.773021116212,
+  "thermal_Tmean_C": 31.5454874723053,
+  "mu_edge_mean_Pa_s": 0.0007573063368598679,
+  "nominal_energy": 5.3880198888274204,
+  "nominal_dE_dH": -4794.139118827361,
+  "schur_vs_monolithic_relative_energy_error": 0.0008529761720053104,
+  "mc_stationary_prob": 0.656,
+  "mc_stationary_stable_N": 732,
+  "mc_dynamic_dt005_prob": 1.0,
+  "mc_dynamic_dt010_prob": 1.0,
+  "newton_feasible": false,
+  "newton_converged": false,
+  "newton_message": "Não existe mudança de sinal de E(H)-7.5 na varredura [100,2200] µm; o alvo é inviável sob o conjunto nominal de parâmetros.",
+  "animation": "/home/guicp/Documents/codes/calculo_numerico/gemeo_digital/resultados_gemeo_digital/14_animacao_gemeo_digital_3D.gif",
+  "report": "/home/guicp/Documents/codes/calculo_numerico/gemeo_digital/RELATORIO_GEMEO_DIGITAL.md"
+}
+
