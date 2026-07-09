@@ -1,0 +1,106 @@
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/acoplamento_hidraulico_termico$ python3 acoplamento_hidraulico_termico.py
+>> SUCESSO: 'gera_grafo.py' do professor foi importado!
+>> SUCESSO: 'plota_rede.py' do professor foi importado!
+====================================================================================================
+ACOPLAMENTO HIDRÁULICO-TÉRMICO - EXECUÇÃO DOS EXERCÍCIOS DO PDF
+====================================================================================================
+Saídas serão salvas em: resultados_acoplamento
+
+================================================================================
+RESPOSTA TEÓRICA - EXERCÍCIO 4.2.1(1)
+================================================================================
+Dedução da Regra do Trapézio Composta para a temperatura média <T_k>:
+
+1. Divisão do Domínio:
+   A aresta de comprimento L_k é dividida em N subintervalos iguais.
+   O passo espacial é Δs = L_k / N.
+
+2. Aplicação do Trapézio Simples:
+   Em cada subintervalo [s_{n-1}, s_n], a área é aproximada por um trapézio:
+   Integral ≈ (Δs/2) * [T(s_{n-1}) + T(s_n)]
+
+3. Composição (Soma dos Subintervalos):
+   Ao somar todos os intervalos, os nós internos (compartilhados entre dois
+   subintervalos vizinhos) são somados duas vezes. As pontas, apenas uma.
+   Integral_Total ≈ (Δs/2) * [T(s_0) + 2*Σ_{n=1}^{N-1} T(s_n) + T(s_N)]
+
+4. Cálculo da Média:
+   Como a média é <T_k> = Integral_Total / L_k, e sabemos que Δs/L_k = 1/N:
+   <T_k> ≈ (1 / 2N) * [T(s_0) + 2*Σ_{n=1}^{N-1} T(s_n) + T(s_N)]
+================================================================================
+
+EXERCÍCIO 4.2.1(2) - solução térmica base refinada_241x121
+Tmax = 62.694162 °C | Tmean = 38.453942 °C | tempo = 0.176 s
+
+EXERCÍCIO 4.2.1(2) - solução térmica base grosseira_61x31
+Tmax = 62.816114 °C | Tmean = 37.934556 °C | tempo = 0.013 s
+
+EXERCÍCIO 4.2.1(3) - TEMPERATURA MÉDIA NAS ARESTAS
+refinada_241x121   | midpoint  | N=   1 | <T>med=43.9929 °C | erro∞=1.326e+00 | tempo=0.018s | pmax=2.614e+03 Pa | P=2.786e-03 W
+refinada_241x121   | midpoint  | N=  10 | <T>med=43.9128 °C | erro∞=2.390e-02 | tempo=0.025s | pmax=2.639e+03 Pa | P=2.814e-03 W
+refinada_241x121   | midpoint  | N= 100 | <T>med=43.9120 °C | erro∞=1.921e-04 | tempo=0.028s | pmax=2.640e+03 Pa | P=2.814e-03 W
+refinada_241x121   | midpoint  | N=1000 | <T>med=43.9120 °C | erro∞=7.097e-06 | tempo=0.048s | pmax=2.640e+03 Pa | P=2.814e-03 W
+refinada_241x121   | trapezoid | N=   1 | <T>med=43.7488 °C | erro∞=3.139e+00 | tempo=0.027s | pmax=2.703e+03 Pa | P=2.884e-03 W
+refinada_241x121   | trapezoid | N=  10 | <T>med=43.9103 °C | erro∞=4.823e-02 | tempo=0.028s | pmax=2.641e+03 Pa | P=2.815e-03 W
+refinada_241x121   | trapezoid | N= 100 | <T>med=43.9120 °C | erro∞=4.102e-04 | tempo=0.031s | pmax=2.640e+03 Pa | P=2.814e-03 W
+Ignoring fixed y limits to fulfill fixed data aspect with adjustable data limits.
+refinada_241x121   | trapezoid | N=1000 | <T>med=43.9120 °C | erro∞=0.000e+00 | tempo=0.040s | pmax=2.640e+03 Pa | P=2.814e-03 W
+refinada_241x121   | alternativa item 5: <mu(T)> direto | pmax=2.652e+03 Pa | P=2.827e-03 W
+grosseira_61x31    | midpoint  | N=   1 | <T>med=44.0231 °C | erro∞=1.472e+00 | tempo=0.023s | pmax=2.607e+03 Pa | P=2.777e-03 W
+grosseira_61x31    | midpoint  | N=  10 | <T>med=43.9408 °C | erro∞=2.087e-02 | tempo=0.027s | pmax=2.634e+03 Pa | P=2.808e-03 W
+grosseira_61x31    | midpoint  | N= 100 | <T>med=43.9399 °C | erro∞=3.279e-04 | tempo=0.028s | pmax=2.635e+03 Pa | P=2.808e-03 W
+grosseira_61x31    | midpoint  | N=1000 | <T>med=43.9399 °C | erro∞=1.692e-06 | tempo=0.049s | pmax=2.635e+03 Pa | P=2.808e-03 W
+grosseira_61x31    | trapezoid | N=   1 | <T>med=43.7704 °C | erro∞=3.335e+00 | tempo=0.029s | pmax=2.701e+03 Pa | P=2.881e-03 W
+grosseira_61x31    | trapezoid | N=  10 | <T>med=43.9381 °C | erro∞=3.727e-02 | tempo=0.032s | pmax=2.635e+03 Pa | P=2.809e-03 W
+grosseira_61x31    | trapezoid | N= 100 | <T>med=43.9399 °C | erro∞=3.279e-04 | tempo=0.034s | pmax=2.635e+03 Pa | P=2.808e-03 W
+grosseira_61x31    | trapezoid | N=1000 | <T>med=43.9399 °C | erro∞=0.000e+00 | tempo=0.052s | pmax=2.635e+03 Pa | P=2.808e-03 W
+grosseira_61x31    | alternativa item 5: <mu(T)> direto | pmax=2.647e+03 Pa | P=2.822e-03 W
+
+================================================================================
+RESPOSTA TEÓRICA - EXERCÍCIO 4.2.1(5)
+================================================================================
+Alternativa para o cálculo da viscosidade efetiva nas arestas:
+
+Em vez de calcular a temperatura média <T> para depois aplicá-la na
+fórmula da viscosidade -- ou seja, usar μ(<T>) --, o mais rigoroso é
+integrar a PRÓPRIA VISCOSIDADE ao longo da aresta para achar <μ>:
+
+   <μ_k> = (1/L_k) * Integral[0 -> L_k] μ(T(p(s))) ds
+
+Justificativa Física e Matemática:
+* A viscosidade da água μ(T) possui um comportamento fortemente NÃO-LINEAR.
+* Em funções não-lineares, a função da média NÃO É IGUAL à média da função
+  (ou seja, μ(<T>) ≠ <μ(T)>).
+* Integrar diretamente a viscosidade ao longo da geometria capta com
+  exatidão a real resistência ao escoamento distribuída pelo canal.
+================================================================================
+
+EXERCÍCIO 4.3.3(1) - CONDUTIVIDADE MODIFICADA PELA REDE
+malha=(61, 31) | dmax=0.00025 | Tmax=49.44100 °C | Tmean=34.27139 °C | tempo=1.218s
+malha=(61, 31) | dmax=0.0005 | Tmax=43.16327 °C | Tmean=32.43534 °C | tempo=1.367s
+malha=(61, 31) | dmax=0.001 | Tmax=41.11072 °C | Tmean=29.17136 °C | tempo=1.902s
+malha=(121, 61) | dmax=0.00025 | Tmax=49.53603 °C | Tmean=34.54860 °C | tempo=4.543s
+malha=(121, 61) | dmax=0.0005 | Tmax=42.34882 °C | Tmean=32.34502 °C | tempo=5.451s
+malha=(121, 61) | dmax=0.001 | Tmax=40.54688 °C | Tmean=28.75000 °C | tempo=7.547s
+malha=(241, 121) | dmax=0.00025 | Tmax=49.40226 °C | Tmean=34.70473 °C | tempo=18.290s
+malha=(241, 121) | dmax=0.0005 | Tmax=42.21275 °C | Tmean=32.30072 °C | tempo=22.145s
+malha=(241, 121) | dmax=0.001 | Tmax=40.39276 °C | Tmean=28.86058 °C | tempo=30.528s
+
+EXERCÍCIO 4.3.3(2) - TERMO FONTE/SUMIDOURO DA REDE
+I=homogenea_I1           | S0= 1.0e+05 | Tmax=73.17970 °C | Tmean=41.77794 °C | tempo=1.460s
+I=homogenea_I1           | S0=-1.0e+05 | Tmax=52.92502 °C | Tmean=34.77412 °C | tempo=1.544s
+I=homogenea_I1           | S0= 5.0e+05 | Tmax=115.21906 °C | Tmean=55.78558 °C | tempo=1.439s
+I=homogenea_I1           | S0=-5.0e+05 | Tmax=40.52096 °C | Tmean=20.76648 °C | tempo=1.452s
+I=homogenea_I1           | S0= 1.0e+06 | Tmax=167.78971 °C | Tmean=73.29513 °C | tempo=1.441s
+I=homogenea_I1           | S0=-1.0e+06 | Tmax=40.32916 °C | Tmean=3.25693 °C | tempo=1.451s
+I=espinha_100_resto_0p1  | S0= 1.0e+05 | Tmax=143.92318 °C | Tmean=56.67639 °C | tempo=1.450s
+I=espinha_100_resto_0p1  | S0=-1.0e+05 | Tmax=40.56819 °C | Tmean=19.87568 °C | tempo=1.438s
+I=espinha_100_resto_0p1  | S0= 5.0e+05 | Tmax=468.76907 °C | Tmean=130.27781 °C | tempo=1.443s
+I=espinha_100_resto_0p1  | S0=-5.0e+05 | Tmax=40.02889 °C | Tmean=-53.72574 °C | tempo=1.439s
+I=espinha_100_resto_0p1  | S0= 1.0e+06 | Tmax=874.82643 °C | Tmean=222.27958 °C | tempo=1.436s
+I=espinha_100_resto_0p1  | S0=-1.0e+06 | Tmax=39.61063 °C | Tmean=-145.72752 °C | tempo=1.448s
+
+====================================================================================================
+EXECUÇÃO CONCLUÍDA
+====================================================================================================
+
