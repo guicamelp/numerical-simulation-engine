@@ -1,0 +1,290 @@
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/membrana_elastica$ python3 membrana-elastica.py 
+========================================================================================================================
+GUIA RÁPIDO DE USO - MEMBRANA ELÁSTICA
+========================================================================================================================
+1) Para mudar o refinamento, altere Nx e Ny em CONFIG.
+2) Para alterar o número de modos calculados, ajuste num_modes.
+3) Use solver_mode='sparse' para malhas finas (mais eficiente).
+4) Ative as flags run_exercise_* para executar os estudos da apostila:
+   - Ex 1: Membrana circular e máscara
+   - Ex 2: Frequências vs Discretização (Tabela)
+   - Ex 3: Dedução teórica de coeficientes
+   - Ex 4: Projeção do termo forçante
+   - Ex 5: Energia média vs Frequência (Ressonância)
+========================================================================================================================
+
+########################################################################################
+CASO ÚNICO - RESOLUÇÃO DA MEMBRANA BASE
+########################################################################################
+==============================================================================================================
+ENTRADAS UTILIZADAS NO PROBLEMA DA MEMBRANA ELÁSTICA
+==============================================================================================================
+Raio (radius) [m]                   : 0.004
+Espessura (thickness) [m]           : 0.0001
+Tensão (sigma) [N/m]                : 200.0
+Densidade (rho) [kg/m³]             : 900.0
+Nx                                  : 81
+Ny                                  : 81
+Número total de incógnitas (nunk)   : 6561
+Passo adimensional (h_hat)          : 2.500000e-02
+Solver de autovalores               : sparse
+Modos fundamentais calculados       : 10
+Penalidade de fronteira (big_number): 1.0e+04
+==============================================================================================================
+==============================================================================================================
+RESULTADOS PRINCIPAIS
+==============================================================================================================
+Tempo de montagem (Assembly) [s]    : 3.730452e-02
+Tempo de solução (Eigen) [s]        : 6.340430e-01
+Tempo total [s]                     : 6.713475e-01
+
+Primeiras 10 frequências naturais:
+Modo  1 -> f = 4574.542456 Hz
+Modo  2 -> f = 7279.129442 Hz
+Modo  3 -> f = 7286.961389 Hz
+Modo  4 -> f = 9738.337213 Hz
+Modo  5 -> f = 9790.086275 Hz
+Modo  6 -> f = 10496.582223 Hz
+Modo  7 -> f = 12118.580055 Hz
+Modo  8 -> f = 12125.359949 Hz
+Modo  9 -> f = 13326.445348 Hz
+Modo 10 -> f = 13332.080174 Hz
+==============================================================================================================
+==============================================================================================================
+INFORMAÇÕES MATRICIAIS
+==============================================================================================================
+Dimensão do sistema (N x N)         : 6561 x 6561
+Não-nulos em K (nnz)                : 25749
+Não-nulos em M (nnz)                : 6561
+Densidade de K                      : 5.981640e-04
+Densidade de M                      : 1.524158e-04
+==============================================================================================================
+==============================================================================================================
+COMENTÁRIO FINAL AO USUÁRIO
+==============================================================================================================
+O programa acabou de:
+1. Discretizar a região da membrana em uma malha 2D (diferenças finitas).
+2. Construir uma máscara circular para restringir os pontos fora do domínio.
+3. Montar a matriz de rigidez K (Laplaciano) e a matriz de massa M.
+4. Resolver o problema generalizado K*Phi = lambda*M*Phi no domínio adimensional.
+5. Converter os autovalores adimensionais em frequências naturais (Hz).
+6. Organizar os autovetores para visualização dos modos de vibração.
+==============================================================================================================
+
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/membrana_elastica$ python3 membrana-elastica.py 
+========================================================================================================================
+GUIA RÁPIDO DE USO - MEMBRANA ELÁSTICA
+========================================================================================================================
+1) Para mudar o refinamento, altere Nx e Ny em CONFIG.
+2) Para alterar o número de modos calculados, ajuste num_modes.
+3) Use solver_mode='sparse' para malhas finas (mais eficiente).
+4) Ative as flags run_exercise_* para executar os estudos da apostila:
+   - Ex 1: Membrana circular e máscara
+   - Ex 2: Frequências vs Discretização (Tabela)
+   - Ex 3: Dedução teórica de coeficientes
+   - Ex 4: Projeção do termo forçante
+   - Ex 5: Energia média vs Frequência (Ressonância)
+========================================================================================================================
+
+##############################################################################################################
+EXERCÍCIO 1 - MEMBRANA CIRCULAR COM MÁSCARA
+##############################################################################################################
+==============================================================================================================
+ENTRADAS UTILIZADAS NO PROBLEMA DA MEMBRANA ELÁSTICA
+==============================================================================================================
+Raio (radius) [m]                   : 0.004
+Espessura (thickness) [m]           : 0.0001
+Tensão (sigma) [N/m]                : 200.0
+Densidade (rho) [kg/m³]             : 900.0
+Nx                                  : 81
+Ny                                  : 81
+Número total de incógnitas (nunk)   : 6561
+Passo adimensional (h_hat)          : 2.500000e-02
+Solver de autovalores               : sparse
+Modos fundamentais calculados       : 10
+Penalidade de fronteira (big_number): 1.0e+04
+==============================================================================================================
+==============================================================================================================
+INFORMAÇÕES MATRICIAIS
+==============================================================================================================
+Dimensão do sistema (N x N)         : 6561 x 6561
+Não-nulos em K (nnz)                : 25749
+Não-nulos em M (nnz)                : 6561
+Densidade de K                      : 5.981640e-04
+Densidade de M                      : 1.524158e-04
+==============================================================================================================
+==============================================================================================================
+RESULTADOS PRINCIPAIS
+==============================================================================================================
+Tempo de montagem (Assembly) [s]    : 2.087285e-02
+Tempo de solução (Eigen) [s]        : 5.157625e-01
+Tempo total [s]                     : 5.366353e-01
+
+Primeiras 10 frequências naturais:
+Modo  1 -> f = 4574.534103 Hz
+Modo  2 -> f = 7286.369377 Hz
+Modo  3 -> f = 7286.802020 Hz
+Modo  4 -> f = 9735.933161 Hz
+Modo  5 -> f = 9787.682867 Hz
+Modo  6 -> f = 10494.347625 Hz
+Modo  7 -> f = 12121.745499 Hz
+Modo  8 -> f = 12130.208042 Hz
+Modo  9 -> f = 13328.922276 Hz
+Modo 10 -> f = 13332.073812 Hz
+==============================================================================================================
+==============================================================================================================
+COMENTÁRIO FINAL AO USUÁRIO
+==============================================================================================================
+O programa acabou de:
+1. Discretizar a região da membrana em uma malha 2D (diferenças finitas).
+2. Construir uma máscara circular para restringir os pontos fora do domínio.
+3. Montar a matriz de rigidez K (Laplaciano) e a matriz de massa M.
+4. Resolver o problema generalizado K*Phi = lambda*M*Phi no domínio adimensional.
+5. Converter os autovalores adimensionais em frequências naturais (Hz).
+6. Organizar os autovetores para visualização dos modos de vibração.
+==============================================================================================================
+
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/membrana_elastica$ python3 membrana-elastica.py 
+========================================================================================================================
+GUIA RÁPIDO DE USO - MEMBRANA ELÁSTICA
+========================================================================================================================
+1) Para mudar o refinamento, altere Nx e Ny em CONFIG.
+2) Para alterar o número de modos calculados, ajuste num_modes.
+3) Use solver_mode='sparse' para malhas finas (mais eficiente).
+4) Ative as flags run_exercise_* para executar os estudos da apostila:
+   - Ex 1: Membrana circular e máscara
+   - Ex 2: Frequências vs Discretização (Tabela)
+   - Ex 3: Dedução teórica de coeficientes
+   - Ex 4: Projeção do termo forçante
+   - Ex 5: Energia média vs Frequência (Ressonância)
+========================================================================================================================
+
+##############################################################################################################
+EXERCÍCIO 2 - FREQUÊNCIAS VS DISCRETIZAÇÃO (CIRCULAR)
+##############################################################################################################
+Resolvido para malha 21x21...
+Resolvido para malha 41x41...
+Resolvido para malha 61x61...
+Resolvido para malha 81x81...
+Resolvido para malha 101x101...
+
+==============================================================================================================
+TABELA DE FREQUÊNCIAS NATURAIS [Hz]
+==============================================================================================================
+Malha      | Modo  1      | Modo  2      | Modo  3      | Modo  4      | Modo  5      | Modo  6      | Modo  7      | Modo  8      | Modo  9      | Modo 10      
+21x21     |    4761.9773 |    7574.9747 |    7706.8754 |   10098.9441 |   10280.5052 |   10936.0372 |   12552.6240 |   12564.6116 |   13767.8238 |   13795.5567 
+41x41     |    4613.5631 |    7340.9069 |    7382.8836 |    9841.0158 |    9949.6123 |   10644.6633 |   12280.0576 |   12292.2181 |   13477.6686 |   13513.2935 
+61x61     |    4586.3476 |    7327.5747 |    7342.7514 |    9786.1661 |    9845.8349 |   10566.7176 |   12186.0916 |   12205.0372 |   13393.7452 |   13415.1956 
+81x81     |    4573.9170 |    7285.1219 |    7287.1687 |    9739.4011 |    9788.1946 |   10493.8003 |   12123.1271 |   12125.5535 |   13330.1033 |   13332.1995 
+101x101   |    4573.1820 |    7262.7486 |    7282.5442 |    9728.9194 |    9782.6919 |   10476.5127 |   12104.4426 |   12104.9987 |   13303.7144 |   13308.7057 
+==============================================================================================================
+
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/membrana_elastica$ python3 membrana-elastica.py 
+========================================================================================================================
+GUIA RÁPIDO DE USO - MEMBRANA ELÁSTICA
+========================================================================================================================
+1) Para mudar o refinamento, altere Nx e Ny em CONFIG.
+2) Para alterar o número de modos calculados, ajuste num_modes.
+3) Use solver_mode='sparse' para malhas finas (mais eficiente).
+4) Ative as flags run_exercise_* para executar os estudos da apostila:
+   - Ex 1: Membrana circular e máscara
+   - Ex 2: Frequências vs Discretização (Tabela)
+   - Ex 3: Dedução teórica de coeficientes
+   - Ex 4: Projeção do termo forçante
+   - Ex 5: Energia média vs Frequência (Ressonância)
+========================================================================================================================
+
+##############################################################################################################
+EXERCÍCIO 3 - EXPLICAÇÃO TEÓRICA E CÁLCULO DOS COEFICIENTES
+##############################################################################################################
+Para oscilações livres, a solução é dada pela superposição modal:
+    w(t) = Σ c_k * Φ^(k) * sin(ω_k * t + φ_k)
+
+Considerando as condições iniciais w(0) = U e w'(0) = V:
+1. Projeta-se U e V na base modal: u_k = Φ_kᵀ * M * U  e  v_k = Φ_kᵀ * M * V
+2. Das relações trigonométricas: c_k * sin(φ_k) = u_k  e  c_k * ω_k * cos(φ_k) = v_k
+3. Obtém-se:
+    c_k = sqrt( u_k² + (v_k / ω_k)² )
+    φ_k = arctan2( u_k, v_k / ω_k )
+--------------------------------------------------------------------------------------------------------------
+
+Cálculo computacional das condições iniciais:
+  U (Deslocamento) = Perfil parabólico.
+  V (Velocidade)   = 0.0 (Repouso).
+
+Resultados para os modos fundamentais calculados:
+Modo |        ω_k (adimensional) |                c_k |           φ_k (rad) |
+-------------------------------------------------------------------------------------
+   1 |                  2.438432 |       4.651794e+01 |           -1.570796 |
+   2 |                  3.883086 |       3.310677e+01 |            1.570796 |
+   3 |                  3.885808 |       1.413845e+01 |            1.570796 |
+   4 |                  5.192514 |       3.950078e-02 |           -1.570796 |
+   5 |                  5.218887 |       1.783733e-02 |            1.570796 |
+   6 |                  5.594981 |       3.404860e+01 |           -1.570796 |
+   7 |                  6.464722 |       4.771608e-01 |           -1.570796 |
+   8 |                  6.464881 |       1.568521e-01 |           -1.570796 |
+   9 |                  7.107928 |       1.962785e+01 |            1.570796 |
+  10 |                  7.109210 |       5.395074e-01 |            1.570796 |
+##############################################################################################################
+
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/membrana_elastica$ python3 membrana-elastica.py 
+========================================================================================================================
+GUIA RÁPIDO DE USO - MEMBRANA ELÁSTICA
+========================================================================================================================
+1) Para mudar o refinamento, altere Nx e Ny em CONFIG.
+2) Para alterar o número de modos calculados, ajuste num_modes.
+3) Use solver_mode='sparse' para malhas finas (mais eficiente).
+4) Ative as flags run_exercise_* para executar os estudos da apostila:
+   - Ex 1: Membrana circular e máscara
+   - Ex 2: Frequências vs Discretização (Tabela)
+   - Ex 3: Dedução teórica de coeficientes
+   - Ex 4: Projeção do termo forçante
+   - Ex 5: Energia média vs Frequência (Ressonância)
+========================================================================================================================
+
+##############################################################################################################
+EXERCÍCIO 4 - PROJEÇÃO DO TERMO FORÇANTE (CIRCULAR)
+##############################################################################################################
+
+Representação do termo forçante na base modal:
+Equação: Z = Σ α_i * M * Φ_i
+------------------------------------------------------------
+Modo (i)     | Coeficiente de Projeção α_i
+------------------------------------------------------------
+1            |            4.65186883e+01
+2            |           -9.13287913e+00
+3            |           -3.48112633e+01
+4            |            3.07212995e-03
+5            |           -2.65373318e-02
+6            |           -3.40601150e+01
+7            |           -3.20091237e-01
+8            |           -3.74488727e-01
+9            |           -1.80869894e+01
+10           |            7.65137628e+00
+------------------------------------------------------------
+
+Cálculo concluído. Distribuição espacial salva em '4_fig-1_termo-forcante.png'.
+##############################################################################################################
+
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/membrana_elastica$ python3 membrana-elastica.py 
+========================================================================================================================
+GUIA RÁPIDO DE USO - MEMBRANA ELÁSTICA
+========================================================================================================================
+1) Para mudar o refinamento, altere Nx e Ny em CONFIG.
+2) Para alterar o número de modos calculados, ajuste num_modes.
+3) Use solver_mode='sparse' para malhas finas (mais eficiente).
+4) Ative as flags run_exercise_* para executar os estudos da apostila:
+   - Ex 1: Membrana circular e máscara
+   - Ex 2: Frequências vs Discretização (Tabela)
+   - Ex 3: Dedução teórica de coeficientes
+   - Ex 4: Projeção do termo forçante
+   - Ex 5: Energia média vs Frequência (Ressonância)
+========================================================================================================================
+
+##############################################################################################################
+EXERCÍCIO 5 - ENERGIA ELÁSTICA MÉDIA (CIRCULAR)
+##############################################################################################################
+Calculando energias médias para os amortecimentos (β): [0.01, 0.1, 1.0]
+
+Cálculo concluído. Gráfico de ressonância salvo em '5_fig-1_energia-media.png'.
+##############################################################################################################
