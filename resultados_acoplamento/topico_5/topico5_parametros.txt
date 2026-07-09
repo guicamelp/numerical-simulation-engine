@@ -1,0 +1,5 @@
+Tópico 5 - Forçamento harmônico
+p_inlet(tau) = 5000*cos(omega3_hat*tau) Pa
+omega3_hat = 3.92197324e+00
+freq3 física equivalente = 1.17700550e+04 Hz
+monitor_idx = 1700

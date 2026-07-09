@@ -1,0 +1,17 @@
+Resultados do acoplamento hidráulico-mecânico
+=====================================================
+
+Fundamento: exercícios finais da seção 5.2.5 do PDF.
+O eixo temporal dos gráficos é o tempo adimensional tau=t/t_ref.
+
+Escalas de referência:
+  R: 2.500000000000e-03
+  w_ref: 2.500000000000e-05
+  t_ref: 5.303300858899e-05
+  v_ref: 4.714045207910e-01
+  p_ref: 8.000000000000e+02
+
+Tópicos executados: 1, 2, 3, 4, 5
+Varredura completa do item 2: False
+
+Observação: network_length_unit=1e-3 m foi usado para converter as coordenadas do grafo em comprimentos físicos.

@@ -1,0 +1,4 @@
+Tópico 1 - Matriz R equivalente
+Dimensão de R: 676 x 676
+nnz visualizados: 173056
+R = h_hat^2 U^T A_hat^{-1} U, após imposição de p_inlet no nó 0.

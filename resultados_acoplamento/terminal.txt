@@ -1,0 +1,8 @@
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/acoplamento_hidraulico_mecanico$ python acoplamento_hidraulico_mecanico.py --quick
+Concluído. Resultados em: /home/guicp/Documents/codes/calculo_numerico/acoplamento_hidraulico_mecanico/resultados_acoplamento
+Tempo total: 16.82 s
+
+(.venv) guicp@LittleSilver:~/Documents/codes/calculo_numerico/acoplamento_hidraulico_mecanico$ python acoplamento_hidraulico_mecanico.py --topics 1 2 3 4 5
+Concluído. Resultados em: /home/guicp/Documents/codes/calculo_numerico/acoplamento_hidraulico_mecanico/resultados_acoplamento
+Tempo total: 16.86 s
+

@@ -1,0 +1,2 @@
+case,Nx,Ny,dt_hat,tau_final,H_um,p_inlet_Pa,beta_hat,p_out_final_Pa,p_out_max_abs_Pa,q_out_max_abs_m3_s,w_center_final_m,w_center_max_abs_m,volume_final_m3,power_max_abs_W
+queda_pressao,51,51,0.025,12.0,1000.0,0.0,0.1,-0.44137194586244544,1430.6878114525043,1.0454331613380104e-05,-1.4387235267840631e-08,3.715310686435458e-05,-3.4860536673009083e-10,0.0
